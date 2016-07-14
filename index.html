@@ -1,1 +1,165 @@
-hello git
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	body{
+		margin: 0;
+		padding: 0;
+	}
+	</style>
+</head>
+<body>
+	<canvas style="display: block;"></canvas>
+	<script>
+	var stars = [];
+	var canvas = document.querySelector('canvas');
+	var w = document.documentElement.clientWidth,
+	h = document.documentElement.clientHeight;
+
+	var speed = 0.3;
+	var randcount = 0;
+	canvas.width = w;
+	canvas.height = h;
+	var context = canvas.getContext('2d');
+	//var sky = context.createLinearGradient(0, 0, 0, document.body.clientHeight);
+	var sky = context.createRadialGradient(w/2, h,0,w/2,h, h )
+	sky.addColorStop(0.0, '#035');
+	sky.addColorStop(1.0, '#000');
+	context.fillStyle = sky;
+	//绘制绿地
+		function green(){
+			context.save();
+			context.beginPath();
+			context.moveTo(0,h*0.8);
+			context.bezierCurveTo(w/1200*540,h/800*400,w/1200*660,h,w,h*0.7);
+			context.lineTo(w,h);
+			context.lineTo(0,h);
+			context.closePath();
+
+			var grt = context.createLinearGradient(0,h,0,0);
+			grt.addColorStop(0.0,'#030');
+			grt.addColorStop(1.0,'#580');
+			context.fillStyle = grt;
+			context.fill();
+			context.restore();
+		}
+	//绘制月亮
+    function orderMoon(x , y, s, R, r,rot){  	
+    context.save();
+    context.translate(x,y);
+    context.rotate(rot/180*Math.PI)
+    context.scale(s,s)
+    drawMoon(context,R,r);
+    context.fillStyle = '#fd5';
+    context.fill();
+    context.restore();
+    }
+    function drawMoon(cxt,R,r) {
+    	var deg = Math.asin(R/r);					//算出来的角度是弧度值
+        cxt.beginPath();
+        cxt.arc(0, 0, R, Math.PI * 1.5, Math.PI * 0.5);
+        cxt.arc(-R/Math.tan(deg), 0, r, deg,  -deg ,true);
+        cxt.closePath();
+    }
+	//添加一定数量的星星
+	addStars();
+
+
+	setInterval(function(){
+		
+		showStars(context);
+		upDate();
+
+	},50)
+
+	setInterval(function(){
+		upDateDrop();
+	},5000)
+
+	function addStars(){
+	for(var i =0;i<Math.ceil(Math.random())*10;i++){
+		var aStar = {
+		 x : Math.random()*w,
+		 y : Math.random()*h*0.65,
+		 vx: Math.pow(-1,Math.floor(Math.random()*1000))*4,
+		 r : Math.random()*8+ 2,
+		 rot : Math.random()*360,
+		 s : Math.random()*5/10+0.3
+		}
+		stars.push(aStar);
+	}
+}
+
+//更新星星的某些状态
+function upDate(){
+		
+	for(var i = 0;i< 10;i++){		
+		if(stars[i*20].r >=20 && speed>0){
+			speed = -0.3;
+		} else if(stars[i*20].r <= 3 && speed<0){
+			speed = 0.3;
+		}
+		stars[i*20].r += speed;
+		stars[i*20].rot += speed*10;
+
+	}
+	stars[randcount].x += stars[randcount].vx;
+	//碰撞检测
+	if(stars[randcount].x <=0 || stars[randcount].x >= w){
+		stars.splice(randcount,1);
+	}
+
+}
+//更新流星状态
+function upDateDrop(){
+	var count = Math.floor(Math.random()*200);
+	randcount = count;
+	
+}
+//绘制所有星星及其他
+function showStars(cxt){
+	cxt.clearRect(0,0, w,h);
+
+	cxt.fillRect(0, 0, w, h);
+	for(var i = 0;i<stars.length;i+=1){
+		drawStar(stars[i].x, stars[i].y, cxt, stars[i].r, stars[i].r*stars[i].s, stars[i].rot);
+	}
+	orderMoon(w-300,200, 1.2, 80, 100,30);
+	green();
+}
+
+//绘制单个星星
+	function drawStar(x, y, cxt, R, r, rot){
+		
+
+		cxt.save();
+
+		cxt.translate(x,y);
+		cxt.rotate(rot/180*Math.PI);										//这个rotate还必须放到translate的后面
+															//还得是绘制状态的前面才管用
+		cxt.beginPath();
+		for(var i = 0;i< 5;i++){
+			cxt.lineTo(Math.cos(Math.PI*(18+i*72)/180)*R, -Math.sin(Math.PI*(18+i*72)/180)*R );
+			cxt.lineTo(Math.cos(Math.PI*(54+i*72)/180)*r, -Math.sin(Math.PI*(54+i*72)/180)*r );
+			//这里的角度是顺时针旋转
+		}
+		cxt.closePath();
+
+		//cxt.lineJoin = 'round';
+		//cxt.miterLimit = 5;
+		
+		cxt.strokeStyle = '#fd5';
+		cxt.fillStyle = '#fc5';
+		cxt.lineWidth = 3;
+
+		cxt.fill();
+		cxt.stroke();
+
+		cxt.restore();
+	}
+
+	</script>
+</body>
+</html>

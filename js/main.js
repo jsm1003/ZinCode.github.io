@@ -1,54 +1,60 @@
-/**
- * some JavaScript code for this blog theme
- */
-/* jshint asi:true */
-
-/////////////////////////header////////////////////////////
-/**
- * clickMenu
- */
 (function() {
-    if (window.innerWidth <= 770) {
-        var menuBtn = document.querySelector('#headerMenu')
-        var nav = document.querySelector('#headerNav')
-        menuBtn.onclick = function(e) {
-            e.stopPropagation()
-            if (menuBtn.classList.contains('active')) {
-                menuBtn.classList.remove('active')
-                nav.classList.remove('nav-show')
-            } else {
-                nav.classList.add('nav-show')
-                menuBtn.classList.add('active')
-            }
-        }
-        document.querySelector('body').addEventListener('click', function() {
-            nav.classList.remove('nav-show')
-            menuBtn.classList.remove('active')
-        })
-    }
-}());
+  
+  /* ----------------------------------------------------------------------- */
+  /* https://www.google.com/design/spec/style/color.html#color-color-palette */ 
+  time = 10000;
+  
+  function change_color(){
 
-
-//////////////////////////back to top////////////////////////////
-(function() {
-    var backToTop = document.querySelector('.back-to-top')
-    var backToTopA = document.querySelector('.back-to-top a')
-        // console.log(backToTop);
-    window.addEventListener('scroll',function () {
-
-
-        // 页面顶部滚进去的距离
-        var scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop)
-
-        if (scrollTop > 200) {
-            backToTop.classList.add('back-to-top-show')
-        } else {
-            backToTop.classList.remove('back-to-top-show')
-        }
-    })
-
-    // backToTopA.addEventListener('click',function (e) {
-    //     e.preventDefault()
-    //     window.scrollTo(0,0)
-    // })
-}());
+    colors = [ //900
+      "#B71C1C",  // red
+      "#4A148C",  // purlple
+      "#1A237E",  // indigo
+      "#0D47A1",  // blue
+      "#004D40",  // teal
+      "#212121",  // gray
+      "#1FA67A"   // FontAwesome color
+      ];
+      
+    var rand = Math.floor(Math.random() * colors.length);
+    var col900 = colors[rand];
+  
+    d3.selectAll("header")
+      .transition().duration(time/4)
+      .style({"background-color": col900});
+    
+    d3.selectAll("table th")
+      .transition().duration(time/4)
+      .style({"border-bottom": "2px solid " + col900});
+      
+    d3.selectAll("wrapper a")
+      .transition().duration(time/4)
+      .style({"color": col900});
+      
+    d3.select("#theme-color").attr("content", col900);
+      
+  }
+  
+  change_color();
+  
+  d3.select("body")
+    .transition().delay(time/16).duration(time/16)
+    .style({"opacity": 1});
+      
+  setInterval(function(){ change_color() }, 2*time);
+  
+  /* -----------------------------------------------------------------*/
+  /* http://stackoverflow.com/questions/9877263/time-delayed-redirect */
+  $(".internallink").click(function (e) {
+    e.preventDefault(); //will stop the link href to call the blog page
+    d3.select("body")
+      .transition().duration(time/16)
+      .style({"opacity": 0});
+    var go_to = this.href;
+    console.log(go_to);
+    setTimeout(function () {
+      window.location.href = go_to; //will redirect to your blog page (an ex: blog.html)
+    }, time/16); //will call the function after 2 secs.
+  });
+  
+})();

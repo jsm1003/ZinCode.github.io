@@ -1,0 +1,15 @@
+
+    <ul class="navigation">
+      <li>
+        <a href="{{ site.baseurl }}/" class="internallink">
+          <span class="thunder">home</span>
+        </a>
+      </li>
+{% for page in site.pages %}{% if page.title %}
+      <li>
+        <a href="{{ page.url | prepend: site.baseurl }}" class="internallink">
+          <span class="thunder">{{ page.title }}</span>
+        </a>
+      </li>
+{% endif %}{% endfor %}
+    </ul>

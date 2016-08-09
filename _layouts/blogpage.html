@@ -1,0 +1,31 @@
+---
+layout: base
+---
+<header>
+    {% include nav.html %}
+	<!-- 这里是不是用include比较好，先这样，等最终效果出来的再说 -->
+	<link rel="stylesheet" href="../css/blog.css">
+    <div class="catalog">
+		{% for post in site.posts %}
+   		 <a href="{{ post.url }}" class="link down">
+   			 <h3>{{ post.title }}<i class="pull-right">{{ post.date | date: "%B %Y" }}</i></h3>
+   		 </a>
+   	 {% endfor %}
+    </div>
+</header>
+<script>
+var nav =document.querySelector('.nav');
+var h = document.documentElement.clientHeight || document.body.clientHeight;
+var catalog = document.querySelector('.catalog');
+catalog.style.height = h - nav.offsetHeight + 'px';
+window.onresize = function(){
+	catalog.style.height = h - nav.offsetHeight + 'px';;
+}
+</script>
+<article>
+  {{ content }}
+  {% include footer.html %}
+</article>
+<script src="../js/changeColor.js"></script>
+<script src="../js/blog.js"></script>
+<script src ="../js/footer.js"></script>

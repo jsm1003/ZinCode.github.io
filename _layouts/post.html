@@ -1,74 +1,32 @@
 ---
 layout: base
-favicon: favicon-pencil.ico
 ---
 <header>
-  <div class="container post-container">
-    {% include navigation.html %}
-    <div class="inner-container">
-      <h1>{{ page.title }}</h1>
-      <ul class="meta">
-        <li>
-          <span>
-             <span class="fa fa-calendar"></span>
-          </span>
-          <span>
-            {{ page.date | date: "%B %Y" }}
-          </span>
-        </li>
-        <li>
-          <span>
-            <span class="fa fa-folder-open-o"></span>
-          </span>
-          <span>
-            {{ page.categories }}
-          </span>
-        </li>
-        <li>
-          <span>
-            <span class="fa fa-comments"></span>
-          </span>
-          <span class="disqus-comment-count" data-disqus-url="{{ site.url }}{{ page.url }}" id="ncomments"></span>
-        </li>
-      </ul>      
+	<link rel="stylesheet" href="{{ "/css/post.css " | prepend: site.baseurl }}">
+    {% include nav.html %}
+	  <h2>{{ page.title }}</h2>
+    <div class="catalog">
+		<!-- 这里是目录部分 -->
     </div>
-    <ul class="pagination">
-      {% if page.previous.url %}
-      <li class="previous">
-        <a href="{{ baseurl }}{{ page.previous.url }}" class="internallink">
-          <span class="horizontal">
-            <span class="fa fa-angle-double-left"></span>
-            previous
-          </span> 
-        </a>
-      </li>
-      {% endif %}
-      {% if page.next.url %}
-      <li class="next">
-        <a href="{{ baseurl }}{{ page.next.url }}" class="internallink">
-          <span class="horizontal">
-            next
-            <span class="fa fa-angle-double-right"></span>
-          </span> 
-        </a>
-      </li>
-      {% endif %}
-    </ul>
-  </div>
 </header>
 <article>
-  <div class="container wrapper post">
+  <div class="wrapper">
     {{ content }}
-    {% include disqus.html %}
-    <div class="push"></div>
+    {% include comments.html %}
   </div>
-  <script src="https://rawgit.com/nomensa/jquery.hide-show/master/jquery.hideShow.min.js"></script>
-  <script>
-    $(".highlight").hideShow({
-      hideText: "Hide <i class=\"fa fa-code\"></i>",
-      showText: "Show <i class=\"fa fa-code\"></i>",
-      state: "hidden"
-    });
-  </script>
   {% include footer.html %}
 </article>
+<script src="{{ "/js/post.js " | prepend: site.baseurl }}"></script>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="{{"/js/changeColor.js" | prepend: site.baseurl}}"></script>
+<script src="{{ "/js/scroll.min.js " | prepend: site.baseurl }}"></script>

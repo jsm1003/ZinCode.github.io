@@ -1,0 +1,15 @@
+
+    <ul class="nav">
+      <li>
+        <a href="{{ site.baseurl }}/" class="link">
+          Home
+        </a>
+      </li>
+			{% for page in site.pages %}
+      <li>
+        <a href="{{ page.url | prepend: site.baseurl }}" class="link">
+          {{ page.title }}
+        </a>
+      </li>
+			{% endfor %}
+    </ul>

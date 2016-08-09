@@ -1,0 +1,43 @@
+---
+layout: blogpage
+permalink: /blog/
+title: Blog
+subtitle: '& code'
+favicon: favicon-file-text.ico
+---
+
+<div class="demowrapper">
+  <ul>
+	  {% for post in site.posts limit:5 %}
+	  <li>
+		<h2>
+		  <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+		  <div class="date">
+		  {{ post.date | date: "%F" }}
+	  </div>
+		</h2>
+
+			<!--
+	 <div class="label">
+			这部分内容暂时先不要,以后完善的时候再说
+			<div class="label-card">
+				{% if post.author %}<i class="fa fa-user"></i>{{ post.author }}
+				{% endif %}
+			</div>
+			<div class="label-card">
+				{% if page.meta %}<i class="fa fa-key"></i>{{ page.meta }}  {% endif %}
+			</div>
+		</div>
+		-->
+		 <div class="excerpt">
+			{{post.excerpt}}
+		</div>
+		<div class="read-all">
+			<a href="{{ post.url | prepend: site.baseurl }}">Read all <i class="fa fa-angle-double-right"></i></a>
+		</div>
+		<hr>
+	  </li>
+		{% endfor %}
+	</ul>
+
+</div>

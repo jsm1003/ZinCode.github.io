@@ -1,40 +1,30 @@
-    
-  <footer>
-      <div class="row">
-        <div class="col-md-4 text-left">
-          Joshua Kunst {{ site.time | date: '%Y' }} <span class="fa fa-creative-commons"></span>
-        </div>
-         <div class="col-md-4 text-center">
-          <span class="fa fa-pencil"></span> with <span class="red pulse fa fa-heart"></span> &
-          <span class="fa fa-coffee"></span>.
-          <a href ="https://github.com/jbkunst/jbkunst.github.io">
-            <span class="fa fa-code"></span> in <span class="fa fa-github-alt"></span>
-          </a>
-        </div>
-        <div class="col-md-4 text-right">
-          <a
-            href ="https://twitter.com/jbkunst"
-            title="My twitter account">
-              <span class="thunder fa fa-twitter"></span>
-          </a>
-          <a
-            href ="https://cl.linkedin.com/in/joshuakunst"
-            title="My linkedin profile">
-              <span class="thunder fa fa-linkedin"></span>
-          </a>
-          <a
-            href ="https://plus.google.com/+JoshuaKunst/posts"
-            title="My google profile">
-              <span class="thunder fa fa-google-plus"></span>
-          </a>
-          <a
-            href ="https://github.com/jbkunst/"
-            title="My github repos!">
-              <span class="thunder fa fa-github-alt"></span>
-          </a>
-        </div>
-      </div>
-  </footer>
-  <!--
-  <div id="fade"></div>
-  -->
+<footer>
+	<div class="row">
+		<div class="col-md-4">
+			Josephine {{ site.time | date: '%Y' }} <i class="fa fa-creative-commons"></i>
+		</div>
+		<div class="col-md-4 text-center">
+			<i class="fa fa-pencil"></i> with <i class="red fa fa-heart"></i> &
+			<i class="fa fa-music"></i>
+			<a href="https://github.com/{{site.github_username}}">
+				<i class="fa fa-code"></i> in <i class="fa fa-github-alt"></i>
+			</a>
+		</div>
+		<div class="col-md-4 text-right">
+			{% if site.email %}
+			<a href="mailto:{{site.email}}" title="email">
+				<i class="fa fa-envelope-o" aria-hidden="true"></i>
+			</a>
+			{% endif %}
+		<a href="https://www.zhihu.com/people/{{site.zhihu_username}}" title="Zhihu">
+			<i class="iconfont">知</i>
+		</a>
+			<a href="https://plus.google.com/107732395167416793005" title="google+">
+				<i class="fa fa-google-plus"></i>
+			</a>
+			<a href="https://github.com/{{site.github_username}}" title="github repos">
+				<i class="fa fa-github"></i>
+			</a>
+		</div>
+	</div>
+</footer>

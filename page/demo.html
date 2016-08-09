@@ -1,0 +1,110 @@
+---
+layout: page
+permalink: /demo/
+<!-- permalink: /demo/ -->
+title: Demo
+subtitle: 一些我学习过程中遇到的demo
+favicon: favicon-code.ico
+---
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script> -->
+    <!-- <script src="/js/blog.js"></script> -->
+	<div class="demos">
+		<div class="row">
+		<div class="col-md-6">
+			<i class="fa fa-search fa-lg"></i>
+			<input type="text" class="input" placeholder="Search demos" id="input">
+			<i class="bar"></i>
+		</div>
+		<div class="col-md-6">
+			<i class="fa fa-folder-open fa-lg"></i>
+			<select name="category" class="input" id="select">
+				<option value="magic">magic</option>
+				<option value="evil">evil</option>
+				<option value="*">all</option>
+			</select>
+			<i class="bar"></i>
+			</div>
+	</div>
+    <!-- <div class="row" id="inputcontainer">
+      <div class="col-md-6">
+        <i class="fa fa-lg fa-search icon-shadow"></i>
+        <input id="search_box" class="input" placeholder="Search posts">
+        <i class="bar"></i>
+      </div>
+      <div class="col-md-6">
+        <i class="fa fa-lg fa-folder-open-o icon-shadow"></i>
+        <select id="category_filter" class="input">
+          <option value="all">All Categories</option>
+          {% for category in site.categories %}
+          <option value="{{ category | first | upcase }}">{{ category | first | upcase }}</option>
+          {% endfor %}
+        </select>
+        <i class="bar"></i>
+      </div>
+    </div> -->
+	<div id="wrap">
+		<div class="item magic"><div class="iteminner"><img src="../images/demo/1.gif" alt="" >
+			<p class="content">11111</p>
+			</div>
+		</div>
+		<div class="item"><div class="iteminner"><img src="../images/demo/2.jpg" alt="">
+			<p class="content">222222</p>
+		</div>
+		</div>
+		<div class="item magic"><img src="../images/demo/3.jpg" alt="">
+			<p class="content">333</p>
+		</div>
+		<div class="item"><img src="../images/demo/4.jpg" alt="">
+			<p class="content">444</p>
+		</div>
+		<div class="item"><img src="../images/demo/5.png" alt="">
+			<p class="content">1234</p>
+		</div>
+		<div class="item magic evil"><img src="../images/demo/6.png" alt="">
+			<p class="content">5534563</p>
+		</div>
+		<div class="item"><img src="../images/demo/7.png" alt="">
+			<p class="content">rtwert</p>
+		</div>
+		<div class="item evil"><img src="../images/demo/8.png" alt="">
+			<p class="content">234523</p>
+		</div>
+		<div class="item evil"><img src="../images/demo/9.png" alt="">
+			<p class="content">23452</p>
+		</div>
+		<div class="item evil"><img src="../images/demo/10.png" alt="">
+			<p class="content">2345</p>
+		</div>
+		<div class="item"><img src="../images/demo/11.png" alt="">
+			<p class="content">etye</p>
+		</div>
+		<div class="item"><img src="../images/demo/12.png" alt="">
+			<p class="content">wertew</p>
+		</div>
+		<div class="item"><img src="../images/demo/13.png" alt="">
+			<p class="content">67896</p>
+		</div>
+	</div>
+    <!-- <div class="container-fluid no-gutter">
+
+        <div id="posts" class="row">
+            {% for post in site.posts %}
+            <div class="item col-sm-3">
+              <a href="{{ post.url }}">
+                <div class="item-wrap">
+                  <h6 class="name">{{ post.title }}</h6>
+                  <p class="category">{{ post.categories }}</p>
+                  <div class="center">
+                    <img class="item-img" alt="{{ post.title }}" src="{{ post.featured_image }}">
+                  </div>
+                </div>
+              </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div> -->
+</div>
+<script src="../js/isotope.pkgd.min.js"></script>
+<script src="../js/demo.js"></script>
+<script src="../js/changeColor.js"></script>

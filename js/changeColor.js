@@ -5,14 +5,17 @@
 		bar = document.querySelectorAll('.bar');
 	var colors = [
 		"#B71C1C",  // red
-		"#1A237E",  // indigo
+		"#1A237E",  // indigo blue 以后可能要删除
 		"#004D40",  // teal
 		"#212121",  // gray
 		"#1FA67A",  // FontAwesome color
 		"#058",
 		"#976f3c",	//yellow
 		"#455a64",	//gray
-		"#db4437"	//red
+		"#db4437",	//red
+		"#75572e",	//dark yellow
+		"#d32f2f",	//red
+		"#1b5e20"	//green
 	];
 	setTimeout(function(){
 		 body.style.opacity = 1;
@@ -23,7 +26,7 @@
 	setInterval(function(){
 		var rand = Math.floor(Math.random() * colors.length);
 		header.style['background-color'] = colors[rand];
-	},13000);
+	},18000);
 	// for(var i = 0;i<bars.length;i++){
 	// 	bars[i].onmouseover = function(){
 	// 		this.style['background-color'] =

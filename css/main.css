@@ -182,7 +182,7 @@ article p{
 	text-align: justify;
 	word-wrap: break-word;
 }
-article ul li,article table tr{
+article ul li,article ol li,article table tr{
 	line-height: 1.5;
 }
 article table{

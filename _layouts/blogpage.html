@@ -3,6 +3,7 @@ layout: base
 ---
 <link rel="stylesheet" href="../css/blog.css">
 <header>
+	<div id="inner">
     {% include nav.html %}
 	<!-- 这里是不是用include比较好，先这样，等最终效果出来的再说 -->
     <div class="catalog">
@@ -12,6 +13,7 @@ layout: base
    		 </a>
    	 {% endfor %}
     </div>
+	</div>
 </header>
 <script>
 var nav =document.querySelector('.nav');

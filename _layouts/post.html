@@ -2,12 +2,14 @@
 layout: base
 ---
 <link rel="stylesheet" href="{{ "/css/post.css " | prepend: site.baseurl }}">
-<header>	
+<header>
+	<div id="inner">
     {% include nav.html %}
 	  <h2>{{ page.title }}</h2>
     <div class="catalog">
 		<!-- 这里是目录部分 -->
     </div>
+	</div>
 </header>
 <article>
   <div class="wrapper">

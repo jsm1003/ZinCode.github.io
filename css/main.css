@@ -50,7 +50,24 @@ h2{
 header{
 	overflow: hidden;
 	position: relative;
-	box-shadow: rgba(0, 0, 0, 0.258824) 2px 0px 5px 0px;;
+	box-shadow: rgba(0, 0, 0, 0.258824) 2px 0px 5px 0px;
+	height: 100%;
+	width: 25%;
+	float: left;
+	color: #fff;
+}
+
+@media(max-width: 960px) {
+	header {
+		width: 100%;
+		height: 150px;
+	}
+}
+#inner{
+	width: 100%;
+	height: 100%;
+	background-color: #1fa67a;
+	transition: all 2s linear;
 }
 
 .nav {
@@ -83,22 +100,7 @@ header a {
 	font-weight: bold;
 }
 
-header {
-	height: 100%;
-	width: 25%;
-	background-color: #058;
-	float: left;
-	color: #fff;
-	/*这里不能用transition属性，后面有讲解*/
-	/*用css3和js随机改变颜色，想法随好，但是效果不行*/
-}
 
-@media(max-width: 960px) {
-	header {
-		width: 100%;
-		height: 150px;
-	}
-}
 .hgroup{
 	position: absolute;
 	top: 50%;

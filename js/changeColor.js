@@ -1,5 +1,5 @@
 (function() {
-    var header = document.querySelector('header'),
+    var inner = document.querySelector('#inner'),
         body = document.querySelector('body'),
         links = document.querySelectorAll('.link'),
         bar = document.querySelectorAll('.bar'),
@@ -24,45 +24,12 @@
     }, 500);
     var randFirst = Math.floor(Math.random() * colors.length); //感觉这里还能够在改进一下
     begin = colors[randFirst];
-    header.style['background-color'] = begin;
-    setInterval(function() {
-        end = colors[Math.floor(Math.random() * colors.length)];
-        var rb = rgb(begin),
-            re = rgb(end);
-        changeColor(rb, re);
-        begin = end;
-    }, 20000);
+    inner.style['background-color'] = begin;
 
-
-    function changeColor(begin, end) {
-        var speed = 0;
-        var timer = setInterval(function() {
-            speed += 1;
-            header.style['background-color'] = 'rgb(' +
-                parseInt(speed * Math.round((end[0] - begin[0]) / 70) + begin[0]) + ',' +
-                parseInt(speed * Math.round((end[1] - begin[1]) / 70) + begin[1]) + ',' +
-                parseInt(speed * Math.round((end[2] - begin[2]) / 70) + begin[2]) + ')';
-            if (speed >= 70) {
-                clearInterval(timer);
-            }
-        }, 30);//选择30ms是为了变化更加平滑
-    }
-    //颜色转换成需要格式
-    function rgb(colorX) {
-        if (colorX.charAt(0) != "#") {
-            return colorX;
-        }
-        //console.time('rgb');
-        var rgb = [];
-        var str = colorX.replace(/#/, "");
-        if (str.length === 3) {
-            str = str.replace(/(.)/g, '$1$1');
-        }
-        for (var i = 0; i < 3; i++) {
-            rgb.push(parseInt('0x' + str.substr(i * 2, 2))); //将字符串每两个一组放到数组中
-        }
-        return rgb;
-    }
+	setInterval(function(){
+		var rand = Math.floor(Math.random() * colors.length);
+		inner.style['background-color'] = colors[rand];
+	},18000);
 
     for (var i = 0; i < links.length; i++) {
         links[i].onclick = function(e) {

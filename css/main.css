@@ -15,6 +15,11 @@ article {
 	background-color:rgba(241,241,241,0.9)
 }
 /*滚动条样式结束*/
+::selection {
+    color: #fff;
+    text-shadow: none;
+    background: #0085a1;
+}
 body{
 	font-family: "Helvetica Neue", Helvetica, 微软雅黑, Arial, Helvetica, sans-serif;
     font-size: 16px;
@@ -84,15 +89,14 @@ header {
 	background-color: #058;
 	float: left;
 	color: #fff;
-	transition: all 3s;
-	/*用css3和js随机改变颜色*/
+	/*这里不能用transition属性，后面有讲解*/
+	/*用css3和js随机改变颜色，想法随好，但是效果不行*/
 }
 
 @media(max-width: 960px) {
 	header {
 		width: 100%;
 		height: 150px;
-
 	}
 }
 .hgroup{
@@ -253,6 +257,11 @@ footer{
 	color: #fff;
 	line-height: 50px;
 	/*position: absolute;*/
+}
+@media(max-width: 960px){
+	footer .text-left,.none{
+		display: none;
+	}
 }
 footer .row{
 	margin: 0 10px;

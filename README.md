@@ -4,6 +4,7 @@
 
 **1 HYG：[http://gaohaoyang.github.io/](http://gaohaoyang.github.io/)**。
 **2 jkunst[http://jkunst.com/](http://jkunst.com/http://jkunst.com/)**。
+**3 再祭出我的博客[http://zincode.github.io](http://zincode.github.io/)**
 
 ## Update Log
 本博客还有很多不完善的地方，后期会逐一进行修改
@@ -27,3 +28,4 @@
 
 * `[+]` 添加访问量统计功能
 * `[+]` 添加back to Top返回顶部功能
+* `[+]` 添加jquery.pjax.js无刷新插件件[https://www.uedsc.com/jquery-pjax-js.html]()https://www.uedsc.com/jquery-pjax-js.html

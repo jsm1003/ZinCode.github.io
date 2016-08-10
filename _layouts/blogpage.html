@@ -1,10 +1,10 @@
 ---
 layout: base
 ---
+<link rel="stylesheet" href="../css/blog.css">
 <header>
     {% include nav.html %}
 	<!-- 这里是不是用include比较好，先这样，等最终效果出来的再说 -->
-	<link rel="stylesheet" href="../css/blog.css">
     <div class="catalog">
 		{% for post in site.posts %}
    		 <a href="{{ post.url }}" class="link down">

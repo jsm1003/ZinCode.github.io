@@ -12,7 +12,7 @@ article {
     width: 8px;
 }
 ::-webkit-scrollbar-thumb {
-	background-color:rgba(241,241,241,0.9)
+	background-color:rgba(241,241,241,0.8);
 }
 /*滚动条样式结束*/
 ::selection {

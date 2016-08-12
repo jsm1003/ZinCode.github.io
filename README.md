@@ -14,6 +14,7 @@
 * `[^]` Demo页面还没有功能完善
 * `[^]` About页面未进行建设
 * `[^]` 没有license营业执照
+* `[^]` 文章引用样式没有写
 
 #### 后续的改进
 
@@ -28,4 +29,4 @@
 
 * `[+]` 添加访问量统计功能
 * `[+]` 添加back to Top返回顶部功能
-* `[+]` 添加jquery.pjax.js无刷新插件件[https://www.uedsc.com/jquery-pjax-js.html]()https://www.uedsc.com/jquery-pjax-js.html
+* `[+]` 添加jquery.pjax.js无刷新插件件[https://www.uedsc.com/jquery-pjax-js.html](https://www.uedsc.com/jquery-pjax-js.html)

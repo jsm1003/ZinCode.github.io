@@ -24,6 +24,27 @@
 	display: block;
 	margin: 30px 0;
 }
+article ul{
+	list-style:disc;
+}
+article ol{
+	list-style:decimal;
+}
+article h2{
+	font-size: 30px;
+	font-weight: bold;
+}
+article h3{
+	font-size: 24px;
+	margin: 18px 0;
+}
+article h4{
+	font-size: 20px;
+	margin: 14px 0;
+}
+article p{
+	text-indent:32px;
+}
 /*多说头像圆角设置*/
 #ds-reset .ds-avatar img{
 

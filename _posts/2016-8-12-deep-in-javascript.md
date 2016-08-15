@@ -104,3 +104,34 @@ var str = 'hello';
 if(str.length){		//true
 
 }
+
+由于Array也是对象，而它的每个元素的索引被视为对象的属性，因此，for ... in循环可以直接循环出Array的索引：
+
+var a = ['A', 'B', 'C'];
+for (var i in a) {
+    alert(i); // '0', '1', '2'
+    alert(a[i]); // 'A', 'B', 'C'
+}
+请注意，for ... in对Array的循环得到的是String而不是Number。
+
+## FUNCTION
+
+如果没有return语句，函数执行完毕后也会返回结果，只是结果为undefined。
+var abx = function(){};
+注意第二种方式按照完整语法需要在函数体末尾加一个;，表示赋值语句结束。
+function abx(){} 这种方式不用加;
+
+#### arguments
+实际上arguments最常用于判断传入参数的个数。你可能会看到这样的写法：
+
+	// foo(a[, b], c)
+	// 接收2~3个参数，b是可选参数，如果只传2个参数，b默认为null：
+	function foo(a, b, c) {
+	    if (arguments.length === 2) {
+	        // 实际拿到的参数是a和b，c为undefined
+	        c = b; // 把b赋给c
+	        b = null; // b变为默认值
+	    }
+	    // ...
+	}
+	要把中间的参数b变为“可选”参数，就只能通过arguments判断，然后重新调整参数并赋值。

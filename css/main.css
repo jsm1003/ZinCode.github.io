@@ -144,7 +144,7 @@ animation: blink 0.7s infinite;
 article {
 	width: 75%;
 	float: right;
-	/*overflow: scroll;*/
+	overflow: scroll;
 	overflow-x: hidden;
 	/*position: relative;*/
 }

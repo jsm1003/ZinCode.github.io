@@ -27,6 +27,9 @@
 	display: block;
 	margin: 30px 0;
 }
+.catalog code{
+	color: #fff;
+}
 article ul{
 	list-style:disc;
 }

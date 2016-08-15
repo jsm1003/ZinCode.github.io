@@ -1,4 +1,4 @@
-window.onload = function() {
+(function() {
     var inner = document.querySelector('#inner'),
         body = document.querySelector('body'),
         links = document.querySelectorAll('.link'),
@@ -42,4 +42,4 @@ window.onload = function() {
         };
     }
 
-};
+}());

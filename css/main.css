@@ -84,7 +84,6 @@ header{
 
 .nav li {
 	margin: 0 10px;
-	/*display: inline-block;*/
 	float: left;
 	position: relative;
 	right: 50%;
@@ -101,7 +100,6 @@ header a {
 	text-decoration: none;
 	font-size: 16px;
 	font-family: "Architects Daughter","Papyrus";
-	/*Architects */
 	font-weight: bold;
 }
 
@@ -147,17 +145,14 @@ animation: blink 0.7s infinite;
 
 /*主体部分*/
 article {
-	/*margin-left: 200px;*/
-	/*float: left;*/
 	overflow: scroll;
 	overflow-x: hidden;
-	/*position: relative;*/
 }
 
 @media(max-width: 960px) {
 	article {
+		clear:both;
 		width: 100%;
-		height: auto;
 		overflow: visible;
 	}
 }

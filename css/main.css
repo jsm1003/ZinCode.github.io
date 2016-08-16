@@ -159,6 +159,11 @@ article {
 .wrapper,.demowrapper{
 	padding: 30px 34px 0;
 }
+@media(max-width: 960px){
+	.wrapper,.demowrapper{
+		padding: 20px 16px 0;
+	}
+}
 
 article div{
 	-webkit-box-sizing: border-box;

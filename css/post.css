@@ -64,6 +64,9 @@ article blockquote{
 	margin: 10px 0;
 	color: #888;
 }
+article a{
+	color: #ce2323;
+}
 /*多说头像圆角设置*/
 #ds-reset .ds-avatar img{
 

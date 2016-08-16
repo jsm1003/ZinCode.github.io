@@ -6,14 +6,17 @@
 }
 .catalog{
 	clear: both;
-	padding: 5px;
-	height: 90%;
+	padding: 0 5px;
+	position: absolute;
+	left:0;
+	right:0;
+	bottom:0;
 	overflow: scroll;
 	overflow-x: hidden;
 }
 .catalog a{
 	display: block;
-	margin: 50px 0;
+	margin: 8px 0 50px;
 }
 .date{
 	font-size: 14px;

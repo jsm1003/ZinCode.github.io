@@ -6,7 +6,8 @@
         begin, end;
     var colors = [
         "#B71C1C", // red
-        "#1A237E", // indigo blue 以后可能要删除
+		"7b5d5f",
+		"4d4d4d",
         "#004D40", // teal
         "#212121", // gray
         "#1FA67A", // FontAwesome color

@@ -17,6 +17,10 @@ tips:
 
 2.变量在JavaScript中就是用一个变量名表示，变量名是大小写英文、数字、$和_的组合，且不能用数字开头。变量名也不能是JavaScript的关键字，如if、while等。申明一个变量用var语句，比如：
 
+
+
+
+
 3.在JavaScript中，使用等号=对变量进行赋值。可以把任意数据类型赋值给变量，同一个变量可以反复赋值，而且可以是不同类型的变量，但是要注意只能用var申明一次，
 
 ### 严格模式
@@ -135,3 +139,43 @@ function abx(){} 这种方式不用加;
 	    // ...
 	}
 	要把中间的参数b变为“可选”参数，就只能通过arguments判断，然后重新调整参数并赋值。
+
+#### apply 与call
+与apply()类似的方法是call()，唯一区别是：
+
+apply()把参数打包成Array再传入；
+
+call()把参数按顺序传入。
+
+比如调用Math.max(3, 5, 4)，分别用apply()和call()实现如下：
+
+Math.max.apply(null, [3, 5, 4]); // 5
+Math.max.call(null, 3, 5, 4); // 5
+对普通函数调用，我们通常把this绑定为null。
+
+##### 装饰器
+
+利用apply()，我们还可以动态改变函数的行为。
+
+JavaScript的所有对象都是动态的，即使内置的函数，我们也可以重新指向新的函数。
+
+现在假定我们想统计一下代码一共调用了多少次parseInt()，可以把所有的调用都找出来，然后手动加上count += 1，不过这样做太傻了。最佳方案是用我们自己的函数替换掉默认的parseInt()：
+
+var count = 0;
+var oldParseInt = parseInt;
+window.parseInt = function(){
+	count +=1;
+	oldParseInt.apply(null, arguments);
+}
+parseInt('10');
+parseInt('10xs');
+parseInt('3das');
+console.log(count);
+
+### 高阶函数map与reduce
+
+map()作为高阶函数，事实上它把运算规则抽象了，因此，我们不但可以计算简单的f(x)=x2，还可以计算任意复杂的函数，比如，把Array的所有数字转为字符串：
+
+var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+arr.map(String); // ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+只需要一行代码。

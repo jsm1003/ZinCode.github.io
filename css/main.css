@@ -4,7 +4,6 @@ header,
 article {
 	padding: 0;
 	margin: 0;
-	width: 100%;
 	height: 100%;
 }
 /*设置滚动条样式*/
@@ -13,6 +12,12 @@ article {
 }
 ::-webkit-scrollbar-thumb {
 	background-color:rgba(241,241,241,0.8);
+}
+::-webkit-scrollbar-track{
+	display: block;
+}
+::-webkit-scrollbar-track:hover {
+    background-color: rgba(0,0,0,0.15);
 }
 /*滚动条样式结束*/
 ::selection {
@@ -52,7 +57,7 @@ header{
 	position: relative;
 	box-shadow: rgba(0, 0, 0, 0.258824) 2px 0px 5px 0px;
 	height: 100%;
-	width: 25%;
+	width: 300px;
 	float: left;
 	color: #fff;
 }
@@ -142,8 +147,8 @@ animation: blink 0.7s infinite;
 
 /*主体部分*/
 article {
-	width: 75%;
-	float: right;
+	/*margin-left: 200px;*/
+	/*float: left;*/
 	overflow: scroll;
 	overflow-x: hidden;
 	/*position: relative;*/
@@ -157,7 +162,7 @@ article {
 	}
 }
 .wrapper,.demowrapper{
-	padding: 30px 7% 0;
+	padding: 30px 34px 0;
 }
 
 article div{

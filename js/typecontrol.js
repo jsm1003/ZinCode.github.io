@@ -19,13 +19,13 @@
     "I'm Josephine",
     "I'm a #js #coder",
     "I'm a music lover",
-    "I'm a data wrangler",
-    "I'm a data explorer",
-    "I'm a data asdf... :B",
+    "I'm a coder wrangler",
+    //"I'm a data explorer",
+    //"I'm a data asdf... :B",
     "I <3 my familiy",
     "I <3 code",
-    "I <3 visualizations",
-    "I <3 R",
+    "I <3 Gothic Metal",
+    //"I <3 R",
     "Thanks for your visit （￣︶￣）↗ ",
     ""
     ];

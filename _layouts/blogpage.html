@@ -9,21 +9,12 @@ layout: base
     <div class="catalog">
 		{% for post in site.posts %}
    		 <a href="{{ post.url }}" class="link down">
-   			 <h3>{{ post.title }}<i class="pull-right">{{ post.date | date: "%B %Y" }}</i></h3>
+   			 <h3>{{ post.title }}<i class="pull-right">{{ post.date | date: "%b %y" }}</i></h3>
    		 </a>
    	 {% endfor %}
     </div>
 	</div>
 </header>
-<script>
-var nav =document.querySelector('.nav');
-var h = document.documentElement.clientHeight || document.body.clientHeight;
-var catalog = document.querySelector('.catalog');
-catalog.style.height = h - nav.offsetHeight + 'px';
-window.onresize = function(){
-	catalog.style.height = h - nav.offsetHeight + 'px';;
-}
-</script>
 <article>
   {{ content }}
   {% include footer.html %}

@@ -3,7 +3,7 @@
 	var article = document.querySelector('article');
 	var footer = document.querySelector('footer');
 	var fh = footer.offsetTop;
-	var oh = document.documentElement.clientHeight || document.body.clientHeight;
+	var oh = window.innerHeight || document.body.clientHeight;
 	if(fh < oh - 50 ){
 		article.style.position = 'relative';
 		footer.style.position = 'absolute';

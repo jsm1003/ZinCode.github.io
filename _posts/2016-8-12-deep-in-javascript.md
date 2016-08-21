@@ -172,10 +172,224 @@ parseInt('10xs');
 parseInt('3das');
 console.log(count);
 
-### 高阶函数map与reduce
+### 高阶函数map与reduce与filter
 
 map()作为高阶函数，事实上它把运算规则抽象了，因此，我们不但可以计算简单的f(x)=x2，还可以计算任意复杂的函数，比如，把Array的所有数字转为字符串：
 
 var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 arr.map(String); // ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 只需要一行代码。
+
+#### filter
+
+判断素数
+function primes(s){
+	return  s < 2 ? false : !/^(11+?)\1+$/.test(Array(s + 1).join('1'));
+}
+primes(23)  //true
+[素数正则表达式](http://coolshell.cn/articles/2704.html)
+
+
+### 闭包
+
+function count() {
+    var arr = [];
+    for (var i=1; i<=3; i++) {
+        arr.push(function () {
+            return i * i;
+        });
+    }
+    return arr;
+}
+
+var results = count();
+var f1 = results[0];
+var f2 = results[1];
+var f3 = results[2];
+在上面的例子中，每次循环，都创建了一个新的函数，然后，把创建的3个函数都添加到一个Array中返回了。
+
+你可能认为调用f1()，f2()和f3()结果应该是1，4，9，但实际结果是：
+
+f1(); // 16
+f2(); // 16
+f3(); // 16
+全部都是16！原因就在于返回的函数引用了变量i，但它并非立刻执行。等到3个函数都返回时，它们所引用的变量i已经变成了4，因此最终结果为16。
+
+* 这里不明白为什么到4了 *
+返回闭包时牢记的一点就是：返回函数不要引用任何循环变量，或者后续会发生变化的变量。
+* 还有脑洞哪里不能够理解 *
+
+### 箭头函数
+x => x*x;
+等价于
+
+function(x){
+	return x*x;
+}
+
+(x, y) => x * x + y * y
+
+// 无参数:
+() => 3.14
+
+// 可变参数:
+(x, y, ...rest) => {
+    var i, sum = x + y;
+    for (i=0; i<rest.length; i++) {
+        sum += rest[i];
+    }
+    return sum;
+}
+//返回对象：
+x => ({foo: x})
+
+#### 箭头函数中的this
+
+箭头函数看上去是匿名函数的一种简写，但实际上，箭头函数和匿名函数有个明显的区别：箭头函数内部的this是词法作用域，由上下文确定。
+
+//正常写法
+var obj = {
+	birth: 1992,
+	getAge: function(){
+		var birth = this.birth;
+		return new Date().getFullYear() - birth;
+	}
+}
+obj.getAge()   		//正常
+//闭包写法
+var obj = {
+    birth: 1990,
+    getAge: function () {
+        var b = this.birth; // 1990
+        var fn = function () {
+            return new Date().getFullYear() - this.birth; // this指向window或undefined
+        };
+        return fn();
+    }
+};
+obj.getAge()		//报错
+//箭头函数
+var obj = {
+    birth: 1990,
+    getAge: function () {
+        var b = this.birth; // 1990
+        var fn = () => new Date().getFullYear() - this.birth; // this指向obj对象
+        return fn();
+    }
+};
+obj.getAge(); // 25
+箭头函数完全修复了this的指向，this总是指向词法作用域，也就是外层调用者obj。
+
+如果使用箭头函数，以前的那种hack写法：
+var that = this;
+
+由于this在箭头函数中已经按照词法作用域绑定了，所以，用call()或者apply()调用箭头函数时，无法对this进行绑定，即传入的第一个参数被忽略：
+
+var obj = {
+    birth: 1990,
+    getAge: function (year) {
+        var b = this.birth; // 1990
+        var fn = (y) => y - this.birth; // this.birth仍是1990
+        return fn.call({birth:2000}, year);
+    }
+};
+obj.getAge(2015); // 25
+
+### 标准对象
+
+总结一下，有这么几条规则需要遵守：
+
+不要使用new Number()、new Boolean()、new String()创建包装对象；
+
+用parseInt()或parseFloat()来转换任意类型到number；
+
+用String()来转换任意类型到string，或者直接调用某个对象的toString()方法；
+
+通常不必把任意类型转换为boolean再判断，因为可以直接写if (myVar) {...}；
+
+typeof操作符可以判断出number、boolean、string、function和undefined；
+
+判断Array要使用Array.isArray(arr)；
+
+判断null请使用myVar === null；
+
+判断某个全局变量是否存在用typeof window.myVar === 'undefined'；
+
+函数内部判断某个变量是否存在用typeof myVar === 'undefined'。
+
+最后有细心的同学指出，任何对象都有toString()方法吗？null和undefined就没有！确实如此，这两个特殊值要除外，虽然null还伪装成了object类型。
+
+更细心的同学指出，number对象调用toString()报SyntaxError：
+
+123.toString(); // SyntaxError
+遇到这种情况，要特殊处理一下：
+
+123..toString(); // '123', 注意是两个点！
+(123).toString(); // '123'
+不要问为什么，这就是JavaScript代码的乐趣！
+
+### Date
+
+获取时间戳
+if(Date.now){
+	alert(Date.now);		//老板ie没有now方法
+} else{
+	alert(new Date().getTime());
+}
+
+### RegExp
+
+创建正则表达式的两种写法。
+var reg = /ABC\-001/;
+var reg = new RegExp('ABC\\-001');
+第二种写法，由于字符串转义的问题，所以字符串的\\实际是\;
+
+#### 切分字符串
+
+var str = 'a b    c';
+str.split('');		['a', 'b', '','', 'c'];
+str.split(/\s/);   ['a', 'b', 'c'];
+'a, b;, c,d  '.split(/[\s\;\,]+/)
+
+#### 分组
+除了简单地判断是否匹配之外，正则表达式还有提取子串的强大功能。用()表示的就是要提取的分组（Group）。比如：
+
+^(\d{3})-(\d{3,8})$分别定义了两个组，可以直接从匹配的字符串中提取出区号和本地号码：
+var re = /^(\d{3})-(\d{3,8})$/;
+re.exec('010-12345'); // ['010-12345', '010', '12345']
+re.exec('010 12345'); // null
+如果正则表达式中定义了组，就可以在RegExp对象上用exec()方法提取出子串来。
+
+exec()方法在匹配成功后，会返回一个Array，第一个元素是正则表达式匹配到的整个字符串，后面的字符串表示匹配成功的子串。
+exec()方法在匹配失败时返回null。
+
+#### 贪婪匹配
+
+需要特别指出的是，正则匹配默认是贪婪匹配，也就是匹配尽可能多的字符。举例如下，匹配出数字后面的0：
+
+var re = /^(\d+)(0*)$/;
+re.exec('102300'); // ['102300', '102300', '']
+由于\d+采用贪婪匹配，直接把后面的0全部匹配了，结果0*只能匹配空字符串了。
+
+必须让\d+采用非贪婪匹配（也就是尽可能少匹配），才能把后面的0匹配出来，加个?就可以让\d+采用非贪婪匹配：
+
+var re = /^(\d+?)(0*)$/;
+re.exec('102300'); // ['102300', '1023', '00']
+
+#### 全局搜索
+
+var re1 = /\d+/g;
+var re2 = new RegExp('\d+','g');
+### 原型继承
+
+## 浏览器对象
+
+正确的方法是充分利用JavaScript对不存在属性返回undefined的特性，直接用短路运算符||计算：
+var width = window.innerWidth || document.body.clientWidth;
+
+#### 获取元素
+
+document.getElementsByclassName();看dom编程艺术发现，getElementsByClassName（class）中的参数class可以设置多个类名，中间用空格分隔，类名传入顺序无所谓。
+在js中id名不用选择即可用，还有另一个方法选择id ： window['id'];
+#### 设置元素
+innerText不返回隐藏元素的文本，而textContent返回所有文本。另外注意IE<9不支持textContent

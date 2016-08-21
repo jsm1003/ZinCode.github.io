@@ -31,3 +31,5 @@
 * `[+]` 添加jquery.pjax.js无刷新插件件[https://www.uedsc.com/jquery-pjax-js.html](https://www.uedsc.com/jquery-pjax-js.html)
 * `[+]` 廖雪峰JS教程这个网站的ajax技术研究一下。点刷新按钮，只刷新部分页面。
 * `[+]` lazyload.js插件
+* `[+]` 页面顶端阅读进度条
+* `[+]` 重新加载页面保留用户浏览的位置。廖大教程

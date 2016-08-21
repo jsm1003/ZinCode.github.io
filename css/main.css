@@ -23,15 +23,18 @@ article {
 ::selection {
     color: #fff;
     text-shadow: none;
-    background: #0085a1;
+    background: #333;
 }
 body{
-	font-family: "Helvetica Neue", Helvetica, 微软雅黑, Arial, Helvetica, sans-serif;
+	font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;
+	font-weight: 400;
     font-size: 16px;
 	color: #222;
 	opacity: 0;
 	filter: alpha(opacity=0);
 	transition: all 2s;
+	 /*Lato, "PingFang SC", "Microsoft YaHei", sans-serif;*/
+	 /*'HanHei SC', 'PingFang SC', 'Helvetica Neue', 'Helvetica', 'STHeitiSC-Light', 'Arial', sans-serif;*/
 }
 /*header部分*/
 h1{

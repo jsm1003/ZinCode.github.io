@@ -41,6 +41,52 @@ article ol{
 article ol,article ul{
 	margin-left: 16px;
 }
+.wrapper-header{
+	height: 50px;
+	padding: 0 8px;
+}
+@media(max-width: 960px){
+	.wrapper-header{
+		display: none;
+	}
+}
+.wrapper-header:hover h1{
+	opacity: 1;
+}
+.wrapper-header .btn{
+	font-size: 14px;
+	display: block;
+    height: 50px;
+    padding: 0 15px;
+    border-bottom: 0;
+    color: #ccc;
+    text-transform: uppercase;
+    line-height: 50px;
+	cursor: pointer;
+}
+.wrapper-header .btn:hover{
+	color: #444;
+}
+article h1{
+	/*margin: 0;*/
+    font-size: 20px;
+    font-weight: 200;
+    text-align: center;
+    line-height: 50px;
+    opacity: 0;
+
+	-webkit-transition: opacity .2s ease;
+    -moz-transition: opacity .2s ease;
+    -o-transition: opacity .2s ease;
+    transition: opacity .2s ease;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+article h1 .title{
+	color: #7e888b;
+	cursor: pointer;
+}
 article h2{
 	font-size: 30px;
 	font-weight: bold;
@@ -62,10 +108,21 @@ article blockquote{
 	margin: 10px 0;
 	color: #888;
 }
-article a{
+.wrapper-header a{
 	color: #ce2323;
 }
-/*多说头像圆角设置*/
-#ds-reset .ds-avatar img{
 
+/*代码高亮显示*/
+.hljs{
+	background-color: #f7f7f7;
+	line-height: 1.4em;
+}
+code{
+    padding: 1px 4px;
+    margin: 0 2px;
+    font-size: 90%;
+    color: #c9254e;
+    background-color: rgb(249, 242, 244);
+	font-weight: 400;
+    font-family: Menlo,Consolas,Arial,sans-serif;
 }

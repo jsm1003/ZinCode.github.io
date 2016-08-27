@@ -12,6 +12,15 @@ layout: base
 	</div>
 </header>
 <article>
+	<div class="wrapper-header">
+   <!-- Actions Left -->
+   <div class="btn pull-left toggle" aria-label="目录"><i class="fa fa-align-justify"></i></div>
+   <div class="btn pull-left" aria-label="搜索"><i class="fa fa-search"></i></div>
+   <!-- Title -->
+   <h1>
+      <div class="title">{{ page.title }}</div>
+   </h1>
+   </div>
   <div class="wrapper">
     {{ content }}
     {% include comments.html %}
@@ -19,6 +28,8 @@ layout: base
   {% include footer.html %}
 </article>
 <script src="{{ "/js/post.js " | prepend: site.baseurl }}"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 <script>
 /**
  * target _blank

@@ -58,6 +58,23 @@ function move(obj, begin, end){
 
 	},30);
 }
+//测试
+var header = document.querySelector('header'),
+    tog = document.querySelector('.toggle'),
+    l = true;
+
+tog.onclick = function(){
+	if(l){
+		header.style.left = -300 + 'px';
+		article.style.left = 0 ;
+		l = false;
+	} else{
+		header.style.left = 0;
+		article.style.left = 300 + 'px';
+		l = true;
+	}
+
+};
 
 
 }());

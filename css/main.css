@@ -150,6 +150,7 @@ animation: blink 0.7s infinite;
 article {
 	overflow: scroll;
 	overflow-x: hidden;
+
 }
 
 @media(max-width: 960px) {
@@ -160,6 +161,7 @@ article {
 	}
 }
 .wrapper,.demowrapper{
+	min-height: calc(100% - 50px);
 	padding: 30px 34px 0;
 }
 @media(max-width: 960px){

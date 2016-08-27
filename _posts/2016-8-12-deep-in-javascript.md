@@ -393,3 +393,64 @@ document.getElementsByclassName();看dom编程艺术发现，getElementsByClassN
 在js中id名不用选择即可用，还有另一个方法选择id ： window['id'];
 #### 设置元素
 innerText不返回隐藏元素的文本，而textContent返回所有文本。另外注意IE<9不支持textContent
+
+#### 删除元素
+要删除一个节点，首先要获得该节点本身以及它的父节点，然后，调用父节点的removeChild把自己删掉：
+
+// 拿到待删除节点:
+var self = document.getElementById('to-be-removed');
+// 拿到父节点:
+var parent = self.parentElement;
+// 删除:
+var removed = parent.removeChild(self);
+//返回被删除的节点
+removed === self; // true
+注意到删除后的节点虽然不在文档树中了，但其实它还在内存中，可以随时再次被添加到别的位置。
+
+当你遍历一个父节点的子节点并进行删除操作时，要注意，children属性是一个只读属性，并且它在子节点变化时会实时更新。
+
+### 压缩代码
+你看到的$函数名可能不是jQuery(selector, context)，因为很多JavaScript压缩工具可以对函数名和参数改名，所以压缩过的jQuery源码$函数可能变成a(b, c)，
+
+我说怎么直接看一些网站的源码，人家的参数变量都是abc，搞得我一头雾水，原来是压缩过的啊
+
+### 短路运算符
+
+逻辑或（||）：
+
+只要第一个值的布尔值为false，那么永远返回第二个值。
+逻辑或属于短路操作，第一个值为true时，不再操作第二个值，且返回第一个值。
+逻辑与（&&）：
+
+只要第一个值的布尔值为true，那么永远返回第二个值。
+逻辑与属于短路操作，第一个值为false时，不再操作第二个值，且返回第一个值。
+
+$.fn.highlight = function(option){
+	var op = option && option.color || '#333';
+	var bc = option && option.backgroundColor || '#058';
+}
+$('#test').hightlight({
+	backgroundColor: '#666'
+	})
+
+#### jquery插件扩展
+$.fn.highlight = function(option){
+	//合并之后的对象
+	var op = $.extend({},$.fn.highlight.default,option);
+		this.css('backgroundColor',op.backgroundColor).css('color',op.color);
+		//返回这个对象以便后面链式调用
+		return this;
+}
+$.fn.highlight.default = {
+	color: '#666',
+	backgroundColor: '#1b1b1b'
+}
+
+//用户操作
+$.fn.highlight.default.color = 'red';
+$('#test').highlight();
+
+0. 给$.fn绑定函数，实现插件的代码逻辑；
+1. 插件函数最后要return this;以支持链式调用；
+2. 插件函数要有默认值，绑定在$.fn.<pluginName>.defaults上；
+3. 用户在调用时可传入设定值以便覆盖默认值。

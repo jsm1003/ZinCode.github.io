@@ -1,4 +1,5 @@
-(function(){
+//(
+	function(){
 	// 当内容过少时，让footer固定到底部
 	var article = document.querySelector('article');
 	var footer = document.querySelector('footer');
@@ -10,4 +11,5 @@
 		footer.style.width = '100%';
 		footer.style.bottom = 0 + 'px';
 	}
-}());
+}
+//());

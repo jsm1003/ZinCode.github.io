@@ -2,10 +2,8 @@ code{
     padding: 1px 4px;
     margin: 0 2px;
     font-size: 90%;
-    /*border-radius: 3px;*/
     color: #c9254e;
-    background-color: rgba(0, 0, 0, 0.06);
-    border: 1px solid #d7d0d2;
+    background-color: rgb(249, 242, 244);
     font-family:Consolas,"Courier New",monospace,sans-serif;
 
 }
@@ -17,7 +15,7 @@ code{
      word-wrap: break-word;      /* IE 5.5-7 */
      white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
      white-space: pre-wrap;      /* current browsers */
-	 background-color: #222;
+	 background-color: #2D2D2D;
 
 }
 .highlight > code {
@@ -26,7 +24,7 @@ code{
    font-size: 14px;
    color:#d1d1c9;
    border: none;
-   background-color: #222;
+   background-color: #2D2D2D;
 }
 
 

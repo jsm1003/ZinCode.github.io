@@ -6,6 +6,8 @@
 **2 jkunst[http://jkunst.com/](http://jkunst.com/http://jkunst.com/)**。
 **3 再祭出我的博客[http://zincode.github.io](http://zincode.github.io/)**
 
+## 该博客可能不再更新，因为我用新的技术栈写了一个新的，比现在这个屌多了，欢迎访问[vue-ssr-blog](https://github.com/ZinCode/vue-ssr-blog-client)**
+
 ## Update Log
 本博客还有很多不完善的地方，后期会逐一进行修改
 ### 2016.8.9 v1.0 beta3

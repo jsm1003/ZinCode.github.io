@@ -21,6 +21,19 @@
 	overflow: scroll;
 	overflow-x: hidden;
 }
+/*blog start*/
+.catalog .link{
+	margin: 8px 0 50px;
+}
+.date{
+	font-size: 14px;
+	color: #ccc;
+}
+.read-all{
+	margin-top: 20px;
+	text-align: right;
+}
+/*blog end*/
 .catalog li{
 	margin-left: 20px;
 }
@@ -31,25 +44,11 @@
 	display: block;
 	margin: 5px 0 30px;
 }
-
-article ul{
-	list-style:disc;
-}
-article ol{
-	list-style:decimal;
-}
-article ol,article ul{
-	margin-left: 16px;
-}
 .wrapper-header{
 	height: 50px;
 	padding: 0 8px;
 }
-@media(max-width: 960px){
-	.wrapper-header{
-		display: none;
-	}
-}
+
 .wrapper-header:hover h1{
 	opacity: 1;
 }
@@ -67,7 +66,7 @@ article ol,article ul{
 .wrapper-header .btn:hover{
 	color: #444;
 }
-article h1{
+.wrapper-header h1{
 	/*margin: 0;*/
     font-size: 20px;
     font-weight: 200;
@@ -83,33 +82,44 @@ article h1{
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-article h1 .title{
+.wrapper-header h1 .title{
 	color: #7e888b;
 	cursor: pointer;
 }
-article h2{
+
+.wrapper ul{
+	list-style:disc;
+}
+.wrapper ol{
+	list-style:decimal;
+}
+.wrapper ol,.wrapper ul{
+	margin-left: 16px;
+}
+
+.wrapper h2{
 	font-size: 30px;
 	font-weight: bold;
 }
-article h3{
+.wrapper h3{
 	font-size: 24px;
 	margin: 18px 0;
 }
-article h4{
+.wrapper h4{
 	font-size: 20px;
 	margin: 14px 0;
 }
-article p{
+.wrapper p{
 	line-height: 1.8em;
 }
-article blockquote{
+.wrapper a{
+	color: #CE2323;
+}
+.wrapper blockquote{
 	border-left: 5px solid #ddd;
 	padding: 2px 10px 1px 20px;
 	margin: 10px 0;
 	color: #888;
-}
-.wrapper-header a{
-	color: #ce2323;
 }
 
 /*代码高亮显示*/

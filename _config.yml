@@ -59,7 +59,10 @@ tag_dir: tag/
 
 # 摘要截至处，当一片文章遇到4个回车这就是文章的摘要部分
 excerpt_separator: "\n\n\n\n"
-
+# sass设置
+sass:
+    style: compressed
+#    貌似不管用，不知道为啥
 # paginate 分页功能
 #gems: [jekyll-paginate]        ？
 #paginate: 5    每页显示多少项目
